@@ -5,12 +5,17 @@ import Note from "./Note";
 import Footer from "./Footer";
 
 function App() {
-  function handleChange() {}
+  const [notes, setNotes] = useState([]);
+  function extractNote(note) {
+    // notes.push(note);
+    console.log(note);
+    return "Hi";
+  }
 
   return (
     <div>
       <Header />
-      <CreateArea />
+      <CreateArea extractNote={extractNote} />
 
       <Note key={1} title="Note title" content="Note content" />
       <Footer />

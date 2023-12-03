@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-function CreateArea() {
-  const [tittle, setTittle] = useState("");
-  const [noteBody, setNoteBody] = useState("");
+function CreateArea(props) {
+  const [note, setNote] = useState({
+    tittle: "",
+    content: "",
+  });
 
   function handleChange(event) {
-    if (event.target.name === "title") {
-      setTittle(event.target.value);
-    } else if (event.target.name) {
-      setNoteBody(event.target.value);
+    if (event.target.name) {
+      setNote((pre) => {
+        return { ...pre, [event.target.name]: event.target.value };
+      });
     }
   }
 
@@ -22,7 +24,14 @@ function CreateArea() {
           placeholder="Take a note..."
           rows="3"
         />
-        <button>Add</button>
+        <button
+          onClick={(event) => {
+            event.preventDefault();
+            console.log(props);
+            props.extractNote(note);
+          }}>
+          Add
+        </button>
       </form>
     </div>
   );
