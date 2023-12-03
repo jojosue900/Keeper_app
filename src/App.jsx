@@ -5,10 +5,13 @@ import Note from "./Note";
 import Footer from "./Footer";
 
 function App() {
+  function handleChange() {}
+
   return (
     <div>
       <Header />
       <CreateArea />
+
       <Note key={1} title="Note title" content="Note content" />
       <Footer />
     </div>
