@@ -6,10 +6,12 @@ import Footer from "./Footer";
 
 function App() {
   const [notes, setNotes] = useState([]);
+
   function extractNote(note) {
-    // notes.push(note);
-    console.log(note);
-    return "Hi";
+    setNotes((prev) => {
+      return [...prev, note];
+    });
+    console.log(notes);
   }
 
   return (

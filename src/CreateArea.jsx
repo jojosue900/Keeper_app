@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
-    tittle: "",
+    title: "",
     content: "",
   });
 
@@ -27,7 +27,6 @@ function CreateArea(props) {
         <button
           onClick={(event) => {
             event.preventDefault();
-            console.log(props);
             props.extractNote(note);
           }}>
           Add
