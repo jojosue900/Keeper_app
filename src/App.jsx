@@ -18,8 +18,10 @@ function App() {
     <div>
       <Header />
       <CreateArea extractNote={extractNote} />
-
-      <Note key={1} title="Note title" content="Note content" />
+      {notes.map((note, index) => {
+        return <Note key={index} title={note.title} content={note.content} />;
+      })}
+      {/* <Note key={1} title="Note title" content="Note content" /> */}
       <Footer />
     </div>
   );
