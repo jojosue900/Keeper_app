@@ -7,6 +7,14 @@ import Footer from "./Footer";
 function App() {
   const [notes, setNotes] = useState([]);
 
+  function deleteNote(index) {
+    setNotes((prev) => {
+      return prev.filter((item, i) => {
+        return i !== index;
+      });
+    });
+  }
+
   function extractNote(note) {
     setNotes((prev) => {
       return [...prev, note];
@@ -19,7 +27,15 @@ function App() {
       <Header />
       <CreateArea extractNote={extractNote} />
       {notes.map((note, index) => {
-        return <Note key={index} title={note.title} content={note.content} />;
+        return (
+          <Note
+            delete={deleteNote}
+            index={index}
+            key={index}
+            title={note.title}
+            content={note.content}
+          />
+        );
       })}
       {/* <Note key={1} title="Note title" content="Note content" /> */}
       <Footer />
